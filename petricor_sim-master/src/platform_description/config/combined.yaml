@@ -1,0 +1,39 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    velocity_controllers:
+      type: velocity_controllers/JointGroupVelocityController
+
+    position_controllers:
+      type: position_controllers/JointGroupPositionController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+position_controllers:
+  ros__parameters:
+    joints:
+      - right_elbw_rev
+      - right_shldr_rev
+      # - z_prism
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+
+velocity_controllers:
+  ros__parameters:
+    joints:
+      - wheel_FL_rev
+      - wheel_FR_rev
+      - wheel_BL_rev
+      - wheel_BR_rev
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - position
+      - velocity
+      - effort
